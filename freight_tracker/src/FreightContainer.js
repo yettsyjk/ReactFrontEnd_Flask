@@ -152,7 +152,7 @@ class FreightContainer extends Component {
         })
     }
     //function for deleteFreight
-    delateFreight = async (id) => {
+    deleteFreight = async (id) => {
         const deleteFreightResponse = await fetch(`http://localhost:8000/api/v1/products/${id}`, {
             method: 'DELETE',
             credentials: 'include'
@@ -173,7 +173,7 @@ class FreightContainer extends Component {
                     <Header className="freightTitle" size="large">Freight Tracking System</Header>
                 </Grid.Row>
                     <Grid.Row>
-                        <Button onClick={this.createFreight}>Create New Inbound Freight</Button>
+                        <Button className="btn" onClick={this.createFreight}><i className="material-icons right">clouds</i>Create New Inbound Freight</Button>
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>

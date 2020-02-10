@@ -62,7 +62,7 @@ class CreateFreight extends Component {
                             onChange={this.handleChange}
                             />
                         </Form.Field>
-                        <Button className="inbound_button" type='submit'>Submit</Button>
+                        <Button className="inbound_button" type="submit">Submit</Button>
                     </Form>
                 </Modal.Content>
             </Modal>

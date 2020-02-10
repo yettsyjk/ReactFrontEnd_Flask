@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 
 import './App.css';
+import FooterContainer from './Footer';
 import FreightContainer from './FreightContainer';
 import FrieghtShow from './FreightShow';
 import HeaderComponent from './Header';
@@ -34,10 +35,10 @@ class App extends Component {
             <Route exact path="/products/:productName" render={(props) => <FrieghtShow {...props}/> }/>
             <Route component={ My404 }/>
           </Switch>
-
         </main>
         
       </header>
+      <FooterContainer/>
     </div>
     )
   }
