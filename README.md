@@ -15,7 +15,7 @@
 1. User will be able to update 
 1. User will be able to delete cards pertaining freight that has been delivered and no longer tracking
 ## Flask back-end Models for product tracking:
-`` class Product(Model):
+` class Product(Model):
     name = CharField()
     cost_of_load = CharField()
     trucking_company = CharField()
@@ -27,7 +27,7 @@
     originating_port = CharField()
     recent_terminal = CharField()
     date_last_terminal = CharField()
-
+`
 
 ## Stretch Goals:
 1. Attach Map API within the dashboard user card, allowing the user to view a map for better user experience
@@ -35,4 +35,3 @@
 # Setup Dependencies
 1. React-Router-Dom by entering in cli: 'npm i react-router-dom'
 1. Semantic UI for React CSS in cli: npm i semantic-ui-css semantic-ui-react
-1. 
