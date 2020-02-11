@@ -48,11 +48,11 @@ class CreateFreight extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <form className="col s12">
+                    <form className="col s12" onSubmit={this.addFreight}>
                     <div className="row">
                         <div className="input-field col s6">   
                             <header>New Inbound Freight</header>
-                            <input className="validate" placeholder="Placeholder" id="load_name" type="text"></input>
+                            <input className="btn" placeholder="Placeholder" id="load_name" type="text"></input>
                             <label for="load_name">Load Name</label>
                         </div>
                     </div>

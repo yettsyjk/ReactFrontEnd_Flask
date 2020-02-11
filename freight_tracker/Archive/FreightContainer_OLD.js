@@ -1,12 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Grid, Button, Header } from 'semantic-ui-react';
+ 
+import CreateFreight from '../src/screens/CreateFreight';
+import EditFreightModal from '../src/screens/EditFreightModal';
+import FreightList from '../src/screens/FreightList';
 
-import CreateFreight from './CreateFreight'
-import EditFreight from './EditFreight'
-import FreightList from './FreightList'
+
 
 class FreightContainer extends Component {
     state = {
         products: [],
+        createModalOpen: false,
+        editModalOpen: false,
         productToEdit: {
             name: '',
             cost_of_load: '',
@@ -22,12 +27,17 @@ class FreightContainer extends Component {
             id: ''
         }
     }
-
+    //function for createFreight
+    createFreight = () => {
+        this.setState({
+            createModalOpen: true
+        })
+    }
     //function for addFreight
     addFreight = async (e, productFromTheForm) => {
         e.preventDefault();
 
-        try {
+        try{
             const createFreightResponse = await fetch(`http://localhost:8000/api/v1/products/`, {
                 //method must match flask back-end create route 
                 method: 'POST',
@@ -45,15 +55,27 @@ class FreightContainer extends Component {
                 products: [...this.state.products, parsedResponse.data]
             })
 
+            this.closeCreateModal()
         } catch (err) {
             console.log('error:', err)
         }
     }
-
+    //function for closeCreateModal
+    closeCreateModal = () => {
+        this.setState({
+            createModalOpen: false
+        })
+    }
+    //function for componentDidMount
+    //we only want to fetch data one time when the component mounts
+    componentDidMount() {
+        this.getFreight();
+        console.log('componentDidMount')
+    }
     //function for getFreight async request that returns a promise activated by fetch
     getFreight = async () => {
         try {
-            const products = await fetch(`http://localhost:8000/api/v1/products/`, {
+            const products = await fetch (`http://localhost:8000/api/v1/products/`, {
                 credentials: 'include'
             });
             const parsedProducts = await products.json();
@@ -61,21 +83,20 @@ class FreightContainer extends Component {
             this.setState({
                 products: parsedProducts.data
             })
-        } catch (err) {
+        } catch (err){
             console.log('error:', err)
         }
     }
-
     //function for editFreight
     editFreight = (idOfProductToEdit) => {
         const productToEdit = this.state.products.find(product => product.id === idOfProductToEdit)
         this.setState({
+            editModalOpen: true,
             productToEdit: {
                 ...productToEdit
             }
         })
     }
-
     //function for handleEditChange
     handleEditChange = (event) => {
         //implementation to state productToEdit
@@ -86,13 +107,12 @@ class FreightContainer extends Component {
             }
         })
     }
-
     //function for updateFreight async allows time to go to Flask back-end and return to render
     updateFreight = async (e) => {
         //avoid browser re-render with preventDefault() for the event
         e.preventDefault()
         //try catch for response 
-        try {
+        try{
             //await the async function hard code localhost and replace with ${process.env.REACT_APP_API_URL}
             const updateResponse = await fetch(`http://localhost:8000/api/v1/products/${this.state.productToEdit.id}`, {
                 //method must match flask back-end update route 
@@ -108,7 +128,7 @@ class FreightContainer extends Component {
             const updateResponseParsed = await updateResponse.json()
             //products are used as blueprint in Flask back-end and must be consistent when mapping through the each array element 
             const newFreightArrayWithUpdate = this.state.products.map((product) => {
-                if (product.id === updateResponseParsed.data.id) {
+                if(product.id === updateResponseParsed.data.id) {
                     product = updateResponseParsed.data
                 }
                 return product
@@ -118,11 +138,18 @@ class FreightContainer extends Component {
                 products: newFreightArrayWithUpdate
             })
 
+            this.closeEditModal()
+
         } catch (err) {
             console.log(err)
         }
     }
-
+    //function for closeEditModal
+    closeEditModal = () => {
+        this.setState({
+            editModalOpen: false
+        })
+    }
     //function for deleteFreight
     deleteFreight = async (id) => {
         const deleteFreightResponse = await fetch(`http://localhost:8000/api/v1/products/${id}`, {
@@ -130,63 +157,59 @@ class FreightContainer extends Component {
             credentials: 'include'
         });
 
-        await deleteFreightResponse.json();
-
+        const deleteFreightParsed = await deleteFreightResponse.json();
+        
         this.setState({
             products: this.state.products.filter((product) => product.id !== id)
         })
-    }
-
-    //function for componentDidMount
-    //we only want to fetch data one time when the component mounts
-    componentDidMount() {
-        this.getFreight();
-        console.log('componentDidMount')
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col s12">
-                        <h1>Freight Tracking System</h1>
+                    <div className="col s6">
+
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col s12">
-                        <button className="btn" type="submit" onClick={this.addFreight}>
-                            <i className="material-icons right">local_shipping</i>
-                            Create New Inbound Freight
-                        </button>
+                    <div className="col s16">
+                        
                     </div>
                 </div>
-                <div className="row">
-                    {/* <div className="col s6">
-                        <h5>Freight List Container</h5>
-                        <FreightList
-                            products={this.state.products}
-                            deleteFreight={this.deleteFreight}
-                            editFreight={this.editFreight}
-                        />
-                    </div> */}
-                    {/* <div className="col s6">
-                        <CreateFreight
-                            addFreight={this.addFreight}
-                        />
-                    </div> */}
-                </div>
-                {/* <div className="row">
-                    <div className="col s12">
-                        <EditFreight
-                            updateFreight={this.updateFreight}
-                            productToEdit={this.state.productToEdit}
-                            handleEditChange={this.handleEditChange}
-                        />
-                    </div>
-                </div> */}
+                <Grid>
+                <Grid.Row>
+                    <Header className="freightTitle" size="large">Freight Tracking System</Header>
+                </Grid.Row>
+                    <Grid.Row>
+                    <button className="waves-effect waves-light btn" onClick={this.createFreight}><i className="material-icons right">local_shipping</i>Create New Inbound Freight</button>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <FreightList
+                                products={this.state.products}
+                                deleteFreight={this.deleteFreight}
+                                editFreight={this.editFreight}
+                            />
+                        </Grid.Column>
+                            <CreateFreight
+                                open={this.state.createModalOpen}
+                                closeModal={this.closeCreateModal}
+                                addFreight={this.addFreight}
+                                
+                            />
+                            <EditFreightModal 
+                                open={this.state.editModalOpen}
+                                updateFreight={this.updateFreight}
+                                productToEdit={this.state.productToEdit}
+                                closeModal={this.closeEditModal}
+                                handleEditChange={this.handleEditChange}
+                            />
+                    </Grid.Row>
+                </Grid>
             </div>
         )
     }
 }
 
-export default FreightContainer
+export default FreightContainer;

@@ -11,6 +11,12 @@ class HeaderComponent extends Component {
             <div className="navbar-fixed">
                 <nav>                
                     <div className="nav-wrapper">
+                        <form>
+                            <div className="input-field">
+                            <input id="search" type="search" placeholder="Search for.." required></input>
+                            <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+                            </div>
+                        </form>
                     <ul className="right hide-on-med-and-down">
                     <li><NavLink to="/" className="left hide-on-med-and-down"></NavLink></li>
                         <li><Link to="/">Home</Link></li>
