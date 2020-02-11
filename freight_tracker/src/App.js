@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 
 
-import './App.css';
-import FooterContainer from './Footer';
-import FreightContainer from './FreightContainer';
-import FrieghtShow from './FreightShow';
-import HeaderComponent from './Header';
-import Home from './Home';
+import AccountName from './screens/AccountName'
+import FooterContainer from './layout/Footer'
+import FreightContainer from './screens/FreightContainer'
+import FrieghtShow from './screens/FreightShow'
+import HeaderComponent from './layout/Header'
+import Home from './screens/Home'
+import Signin from './screens/Signin'
+import Register from './screens/Register'
 
 const My404 = () => {
   return (
@@ -33,6 +35,9 @@ class App extends Component {
             <Route exact path="/" render={(props) => <Home {...props}/> } />
             <Route exact path="/products" render={(props) => <FreightContainer {...props}/> } />
             <Route exact path="/products/:productName" render={(props) => <FrieghtShow {...props}/> }/>
+            <Route exact path="/signin" component={Signin}/>
+            <Route exact path="/accountName" component={AccountName}/>
+            <Route exact path="/register" component={Register}/>
             <Route component={ My404 }/>
           </Switch>
         </main>

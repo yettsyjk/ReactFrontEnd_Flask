@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Header, Modal } from 'semantic-ui-react';
+
 
 class CreateFreight extends Component {
     constructor() {
@@ -27,7 +27,7 @@ class CreateFreight extends Component {
         })
     }
 
-    //function for clearForm
+    //function for clearForm has mutable state attributes, setState will immute the following attributes
     clearForm = () => {
         this.setState({
             name: '',
@@ -46,27 +46,20 @@ class CreateFreight extends Component {
 
     render() {
         return (
-            <Modal open={this.props.open} closeIcon onClose={this.props.closeModal}>
-                <Header>New Inbound Freight</Header>
-                <Modal.Content>
-                    <Form
-                        size='large'
-                        onSubmit={(e) => this.props.addFreight(e, this.state)}
-                    >
-                        <Form.Field>
-                            <lable>Load Name</lable>
-                            <Form.Input
-                            type="text"
-                            name="name"
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                            />
-                        </Form.Field>
-                        <Button className="inbound_button" type="submit">Submit</Button>
-                    </Form>
-                </Modal.Content>
-            </Modal>
-        )
+            <div className="container">
+                <div className="row">
+                    <form className="col s12">
+                    <div className="row">
+                        <div className="input-field col s6">   
+                            <header>New Inbound Freight</header>
+                            <input className="validate" placeholder="Placeholder" id="load_name" type="text"></input>
+                            <label for="load_name">Load Name</label>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        );
     }
 }
 

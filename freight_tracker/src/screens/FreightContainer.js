@@ -49,7 +49,8 @@ class FreightContainer extends Component {
             });
 
             const parsedResponse = await createFreightResponse.json();
-            
+            console.log('parsedResponse point')
+
             this.setState({
                 products: [...this.state.products, parsedResponse.data]
             })
@@ -63,8 +64,6 @@ class FreightContainer extends Component {
     closeCreateModal = () => {
         this.setState({
             createModalOpen: false
-        }, () => {
-            this.createProductFormRef.current.clearForm();
         })
     }
     //function for componentDidMount
@@ -167,13 +166,23 @@ class FreightContainer extends Component {
 
     render() {
         return (
-            <div className="FreightContainer">
+            <div className="container">
+                <div className="row">
+                    <div className="col s6">
+
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s16">
+                        
+                    </div>
+                </div>
                 <Grid>
                 <Grid.Row>
                     <Header className="freightTitle" size="large">Freight Tracking System</Header>
                 </Grid.Row>
                     <Grid.Row>
-                        <Button className="btn" onClick={this.createFreight}><i className="material-icons right">clouds</i>Create New Inbound Freight</Button>
+                    <button className="waves-effect waves-light btn" onClick={this.createFreight}><i className="material-icons right">local_shipping</i>Create New Inbound Freight</button>
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
@@ -187,7 +196,7 @@ class FreightContainer extends Component {
                                 open={this.state.createModalOpen}
                                 closeModal={this.closeCreateModal}
                                 addFreight={this.addFreight}
-                                ref={this.createProductFormRef}
+                                
                             />
                             <EditFreightModal 
                                 open={this.state.editModalOpen}
