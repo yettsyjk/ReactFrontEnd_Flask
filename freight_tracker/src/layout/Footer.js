@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Input } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const date = new Date()
 
@@ -12,14 +12,14 @@ class FooterContainer extends Component {
                     <div className="row">
                         <div className="col s12 m6">
                             <div className="black-text text-lighten-3">Footer Content 
-                                <div disabled>
+                                <div className="black-text" disabled>
                                     c {date.getFullYear()} Darkenship Media, LLC
                                 </div>
-                                <div disabled>
-                                    <input disabled label="Author: "/> 
+                                <div className="black-text" disabled>
+                                    <label disabled label="Author: Yettsy J Knapp"/>
                                 </div>
-                                <div disabled>
-                                    <input disabled label="Date: "/> 
+                                <div className="black-text" disabled>
+                                    <label disabled label="Date:Feb 2020 "/> 
                                 </div>
                                 <div className="black-text">
                                     <h5 className="black-text">Links</h5>

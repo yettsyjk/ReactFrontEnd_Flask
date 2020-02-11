@@ -6,16 +6,17 @@ class FreightShow extends Component {
     state = {
         products: false
     }
+    //deconstruct products from state to render cetrain attributes
     render() {
         const { products } = this.state
         return (
             <div className="row">
                 <div className="col s12 m7">
                     <div className="card">
-                    <span classNameName="">key={this.props.product.id}</span>
+                    <span className="card-content">key={this.props.product.id}</span>
                     </div>
                         <div className="card-image">
-                        <img src="../public/favicon-32x32.png"></img>
+                        <img src="../public/favicon-32x32.png" alt="Freight tracker company logo truck for shipping"></img>
                         <span className="card-title">Load Name: {products.name}</span>
                         </div>
                             <div className="card-content">
@@ -24,8 +25,8 @@ class FreightShow extends Component {
                             </div>
                                 <div className="card-action">
                                     <Link to="/">This is a link</Link>
-                                    <button className="waves-effect waves-light btn-flat" onClick={() => this.props.deleteFreight(this.props.product.id)}>Delete Freight Load</button>
-                                    <button className="waves-effect waves-light btn-flat" onClick={() => this.props.editFright(this.props.product.id)}>Edit Freight Load</button>
+                                    <button className="btn-flat" onClick={() => this.props.deleteFreight(this.props.product.id)}>Delete Freight Load</button>
+                                    <button className="btn-flat" onClick={() => this.props.editFright(this.props.product.id)}>Edit Freight Load</button>
                                 </div>
                 </div>
             </div>  

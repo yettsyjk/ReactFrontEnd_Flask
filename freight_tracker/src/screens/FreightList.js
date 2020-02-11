@@ -11,7 +11,26 @@ function FreightList(props) {
                 <div className="card">
                     <div className="card-content">
                         <span className="card-title black-text">Load Name: {product.name}</span>
-                        <p>Extra details could go here...</p>
+                        <p className="black-text">{ "black-text"roduct.cost_of_load}</p>
+                        <br/>
+                        <p className="black-text">{product.trucking_company}</p>
+                        <br/>
+                        <p className="black-text">{product.bol_number}</p>
+                        <br/>
+                        <p className="black-text">{product.travel_days_required}</p>
+                        <br/>
+                        <p className="black-text">{product.estimated_date_arrival}</p>
+                        <br/>
+                        <p className="black-text">{product.point_of_contact}</p>
+                        <br/>
+                        <p className="black-text">{product.num_of_pallets}</p>
+                        <br/>
+                        <p className="black-text">{product.originating_port}</p>
+                        <br/>
+                        <p className="black-text">{product.recent_terminal}</p>
+                        <br/>
+                        <p className="black-text">{product.date_last_terminal}</p>
+                        <br/>
                     </div>
                     <div className="card-action">
                         <button className="btn-flat" onClick={() => props.editFreight(product.id)}>

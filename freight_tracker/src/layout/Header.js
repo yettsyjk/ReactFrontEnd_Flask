@@ -18,12 +18,12 @@ class HeaderComponent extends Component {
                             </div>
                         </form>
                     <ul className="right hide-on-med-and-down">
-                    <li><NavLink to="/" className="left hide-on-med-and-down"></NavLink></li>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/products">Inbound Freight</Link></li>
-                        <li><NavLink to="/" className="right hide-on-med-and-down">Logout</NavLink></li>
-                        </ul>
-                        </div>
+                            <li><NavLink to="/" className="left"></NavLink></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/products">Inbound Freight</Link></li>
+                            <li><NavLink to="/" className="right">Logout</NavLink></li>
+                    </ul>
+                    </div>
                 </nav>
             </div>
         )
