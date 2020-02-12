@@ -11,7 +11,7 @@ function FreightList(props) {
                 <div className="card">
                     <div className="card-content">
                         <span className="card-title black-text">Load Name: {product.name}</span>
-                        <p className="black-text">{ "black-text"roduct.cost_of_load}</p>
+                        <p className="black-text">{ product.cost_of_load}</p>
                         <br/>
                         <p className="black-text">{product.trucking_company}</p>
                         <br/>
