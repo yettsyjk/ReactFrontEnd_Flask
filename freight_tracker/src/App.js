@@ -10,7 +10,7 @@ import FrieghtShow from './screens/FreightShow'
 import HeaderComponent from './layout/Header'
 import Home from './screens/Home'
 import Register from './screens/Register'
-import Signin from './screens/Signin'
+import SignIn from './screens/SignIn'
 
 const My404 = () => {
 	return (
@@ -36,7 +36,7 @@ class App extends Component {
 							<Route exact path="/products" render={(props) => <FreightContainer {...props} />} />
 							<Route exact path="/products/:productName" render={(props) => <FrieghtShow {...props} />} />
 							<Route exact path="/products/:productName/edit" render={(props) => <EditFreight {...props} />} />
-							<Route exact path="/signin" component={Signin} />
+							<Route exact path="/signin" component={SignIn} />
 							<Route exact path="/accountName" component={AccountName} />
 							<Route exact path="/register" component={Register} />
 							<Route component={My404} />

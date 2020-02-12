@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import CreateFreight from './CreateFreight'
-import EditFreight from './EditFreight'
-import FreightList from './FreightList'
+// import CreateFreight from './CreateFreight'
+// import EditFreight from './EditFreight'
+import FreightList from '../components/FreightList'
 
 class FreightContainer extends Component {
     state = {
@@ -21,6 +21,7 @@ class FreightContainer extends Component {
             date_last_terminal: ''
         }
     }
+//function for handleEditChange is required for form that is being submitted to return an object
        handleEditChange = (event) => {
         //implementation to state productToCreate
         this.setState({
@@ -29,10 +30,12 @@ class FreightContainer extends Component {
                 [event.target.name]: event.target.value
             }
         })
+        console.log('productToCreate handleEditChange');
     }
     //function for addFreight
     addFreight = async (e) => {
         e.preventDefault();
+        //in console user should see the object that was created 
         console.log(this.state.productToCreate)
         try {
             
@@ -61,7 +64,7 @@ class FreightContainer extends Component {
     //function for getFreight async request that returns a promise activated by fetch
     getFreight = async () => {
         try {
-            const products = await fetch(`http://localhost:8000/api/v1/products/`, {
+            const products = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/products/`, {
                 credentials: 'include'
             });
             const parsedProducts = await products.json();
@@ -70,71 +73,8 @@ class FreightContainer extends Component {
                 products: parsedProducts.data
             })
         } catch (err) {
-            console.log('error:', err)
+            console.log('getFreight error:', err)
         }
-    }
-
-    //function for editFreight
-    editFreight = (idOfProductToEdit) => {
-        const productToEdit = this.state.products.find(product => product.id === idOfProductToEdit)
-        this.setState({
-            productToEdit: {
-                ...productToEdit
-            }
-        })
-    }
-
-    //function for handleEditChange
- 
-
-    //function for updateFreight async allows time to go to Flask back-end and return to render
-    updateFreight = async (e) => {
-        //avoid browser re-render with preventDefault() for the event
-        e.preventDefault()
-        //try catch for response 
-        try {
-            //await the async function hard code localhost and replace with ${process.env.REACT_APP_API_URL}
-            const updateResponse = await fetch(`http://localhost:8000/api/v1/products/${this.state.productToEdit.id}`, {
-                //method must match flask back-end update route 
-                method: 'PUT',
-                //payload will be returned from back-end as jsonify data
-                body: JSON.stringify(this.state.productToEdit),
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                //this portion is more for authentication purpose to verify credentials from back-end allows update data
-                credentials: 'include'
-            })
-            const updateResponseParsed = await updateResponse.json()
-            //products are used as blueprint in Flask back-end and must be consistent when mapping through the each array element 
-            const newFreightArrayWithUpdate = this.state.products.map((product) => {
-                if (product.id === updateResponseParsed.data.id) {
-                    product = updateResponseParsed.data
-                }
-                return product
-            })
-            //call this.setState inside 
-            this.setState({
-                products: newFreightArrayWithUpdate
-            })
-
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    //function for deleteFreight
-    deleteFreight = async (id) => {
-        const deleteFreightResponse = await fetch(`http://localhost:8000/api/v1/products/${id}`, {
-            method: 'DELETE',
-            credentials: 'include'
-        });
-
-        await deleteFreightResponse.json();
-
-        this.setState({
-            products: this.state.products.filter((product) => product.id !== id)
-        })
     }
 
     //function for componentDidMount
@@ -146,18 +86,14 @@ class FreightContainer extends Component {
     render() {
         return (
             <div className="container">
-                {/* <div className="row">
-                    <div className="col s12">
-                        <h1>Freight Tracking System</h1>
-                    </div>
-                </div> */}
+                
                 <div className="row">
-                    <div className="col s12">
-                    <header>New Inbound Freight</header>
+                    <div className="col s12 m7">
+                    <div className="card-content">
+                    <header>New Inbound Freight</header><br/>
                     <form className="col" onSubmit={this.addFreight}>
-                    {/* <div className="row">
-                        <div className=" col s6">    */}
-                            <label for="load_name">Load Name</label>
+                   
+                            <label className="black-text" for="load_name">Load Name</label>
                             <input placeholder="load_name" name="name" type="text" value={this.state.productToCreate.name} onChange={this.handleEditChange}></input>
                             <br/>
                             <label for="cost_of_load">cost_of_load</label>
@@ -195,7 +131,7 @@ class FreightContainer extends Component {
                             Create New Inbound Freight
                         </button> 
                     </form>
-                   
+                    </div>
 
 
                         
@@ -203,14 +139,13 @@ class FreightContainer extends Component {
                 </div>
                 <div className="row">
                     <div className="col s6">
-                        <h5>Freight List Container</h5>
                         <FreightList
                             products={this.state.products}
                             deleteFreight={this.deleteFreight}
                             editFreight={this.editFreight}
                         />
                     </div>
-                    <div className="col s6">
+                    {/* <div className="col s6">
                         <CreateFreight
                             addFreight={this.addFreight}
                         />
@@ -223,7 +158,7 @@ class FreightContainer extends Component {
                             productToCreate={this.state.productToCreate}
                             handleEditChange={this.handleEditChange}
                         />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ class HeaderComponent extends Component {
                             <label className="label-icon" for="search"><i className="material-icons">search</i></label>
                             </div>
                         </form>
-                    <ul className="right hide-on-med-and-down">
+                    <ul className="collection with-header">
                             <li><NavLink to="/" className="left"></NavLink></li>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/products">Inbound Freight</Link></li>

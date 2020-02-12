@@ -48,8 +48,9 @@ class CreateFreight extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <header>Create Freight Container</header>
-                    <form className="col s12" onSubmit={this.addFreight}>
+                    <div className="card-content">
+                    <header className="black-text">Create Freight Container</header><br/>
+                    <form className="col s12 m7" onSubmit={this.addFreight}>
                             <label for="load_name">Load Name</label>
                             <input placeholder="load_name" name="name" type="text" value={this.state.name} onChange={this.handleChange}></input>
                             <br/>
@@ -84,10 +85,11 @@ class CreateFreight extends Component {
                             <input placeholder="date_last_terminal" name="date_last_terminal" type="text" value={this.state.date_last_terminal} onChange={this.handleChange}></input>
                             <br/>
                         <button className="btn" type="submit"><i className="material-icons right">local_shipping</i>
-                            CreateFrieghtContainer
+                            Create Frieght Container
                         </button> 
                       
                     </form>
+                    </div>
                 </div>
             </div>
         );

@@ -11,9 +11,9 @@ class FooterContainer extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col s12 m6">
-                            <div className="black-text text-lighten-3">Footer Content 
+                            <div className="black-text text-lighten-3">Freight Tracker  
                                 <div className="black-text" disabled>
-                                    c {date.getFullYear()} Darkenship Media, LLC
+                                    c {date.getFullYear()} DM, LLC
                                 </div>
                                 <div className="black-text" disabled>
                                     <label disabled label="Author: Yettsy J Knapp"/>

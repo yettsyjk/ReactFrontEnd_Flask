@@ -1,16 +1,22 @@
 import React from 'react'
 
-//create functional component to return Modal attributes
-function EditFreight(props) {
+//create functional component to destructure props for productToCreate
+const EditFreight= (props)=> {
+    const {
+      products,
+      handleEditChange,
+    } = props
     //Form, Button, Header, Modal from semantic-ui-react
     //state not available do not use state or this
     return (
         <div class="row">
+      <div className="card-content">
     <form class="col s12">
       <div class="row">
-        <div class="col s6">
+        <div class="col s12 m7">
+          <header className="black-text">Edit Freight Container</header><br/>
                             <label for="load_name">Load Name</label>
-                            <input placeholder="load_name" name="name" type="text" value={props.productToCreate.name}></input>
+                            <input placeholder="load_name" name="name" type="text" value={props.productToCreate.name} onChange={handleEditChange}></input>
                             <br/>
                             <label for="cost_of_load">cost_of_load</label>
                             <input placeholder="cost_of_load" name="cost_of_load" type="text" value={props.productToCreate.cost_of_load}></input>
@@ -49,6 +55,7 @@ function EditFreight(props) {
         </div>
         </div>
     </form>
+  </div>
   </div>
     )
 }

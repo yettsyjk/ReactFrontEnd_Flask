@@ -6,15 +6,13 @@
 
 
 .app-content { /* body of the app*/
-  background-color: #D1E8D1;
+  background-color: #C9BCB7;
   min-height: 100vh;/* sticky footer styling*/
   display: flex;/* sticky footer styling*/
   flex-direction: column;/* sticky footer styling*/
   align-items: center;
   justify-content: center;
-  /* font-size: calc(10px + 2vmin); */
   font-size: 14pt;
-  color: white;
 }
 
 .router-content {
@@ -25,7 +23,7 @@
   color: #61dafb;
 }
 .card-content {
-  background: #fff;
+  background: #848E99;
   border-radius: 2px;
   box-shadow: 0 0.5em 0.5em -0.4em;
   display: block;
