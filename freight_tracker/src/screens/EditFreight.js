@@ -3,7 +3,6 @@ import React from 'react'
 //create functional component to destructure props for productToCreate
 const EditFreight= (props)=> {
     const {
-      products,
       handleEditChange,
     } = props
     //Form, Button, Header, Modal from semantic-ui-react

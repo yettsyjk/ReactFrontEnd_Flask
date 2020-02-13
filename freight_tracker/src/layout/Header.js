@@ -7,10 +7,8 @@ class HeaderComponent extends Component {
     //desconstruct auth
     render() {
         return(
-            
-            <div className="navbar-fixed">
-                <nav>                
-                    <div className="nav-wrapper">
+            <header>
+                <nav className="nav-wrapper transparent">                
                         <form>
                             <div className="input-field">
                             <input id="search" type="search" placeholder="Search for.." required></input>
@@ -23,9 +21,8 @@ class HeaderComponent extends Component {
                             <li><Link to="/products">Inbound Freight</Link></li>
                             <li><NavLink to="/" className="right">Logout</NavLink></li>
                     </ul>
-                    </div>
                 </nav>
-            </div>
+                </header>
         )
     }
 };

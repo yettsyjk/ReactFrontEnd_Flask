@@ -35,3 +35,4 @@
 # Setup Dependencies
 1. React-Router-Dom by entering in cli: 'npm i react-router-dom'
 1. Semantic UI for React CSS in cli: npm i semantic-ui-css semantic-ui-react
+1. refactoring code to use materialize css and sass css. In cli brew install sass/sass/sass

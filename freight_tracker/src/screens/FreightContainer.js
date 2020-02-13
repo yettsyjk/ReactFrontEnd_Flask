@@ -21,8 +21,9 @@ class FreightContainer extends Component {
             date_last_terminal: ''
         }
     }
-//function for handleEditChange is required for form that is being submitted to return an object
-       handleEditChange = (event) => {
+
+    //function for handleEditChange is required for form that is being submitted to return an object
+    handleEditChange = (event) => {
         //implementation to state productToCreate
         this.setState({
             productToCreate: {
@@ -32,13 +33,14 @@ class FreightContainer extends Component {
         })
         console.log('productToCreate handleEditChange');
     }
+
     //function for addFreight
     addFreight = async (e) => {
         e.preventDefault();
         //in console user should see the object that was created 
         console.log(this.state.productToCreate)
         try {
-            
+
             const createFreightResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/products/`, {
                 //method must match flask back-end create route 
                 method: 'POST',
@@ -77,72 +79,88 @@ class FreightContainer extends Component {
         }
     }
 
+    //function for clearForm has mutable state attributes, setState will immute the following attributes
+    clearForm = () => {
+        this.setState({
+            name: '',
+            cost_of_load: '',
+            trucking_company: '',
+            bol_number: '',
+            travel_days_required: '',
+            estimated_date_arrival: '',
+            point_of_contact: '',
+            num_of_pallets: '',
+            originating_port: '',
+            recent_terminal: '',
+            date_last_terminal: ''
+        })
+    }
+
     //function for componentDidMount
     //we only want to fetch data one time when the component mounts
     componentDidMount() {
-        console.log('componentDidMount')
+        const { product } = this.props
+        this.setState({
+            product: product
+        })
+        console.log('FreightContainer componentDidMount')
     }
 
     render() {
         return (
             <div className="container">
-                
                 <div className="row">
                     <div className="col s12 m7">
-                    <div className="card-content">
-                    <header>New Inbound Freight</header><br/>
-                    <form className="col" onSubmit={this.addFreight}>
-                   
-                            <label className="black-text" for="load_name">Load Name</label>
-                            <input placeholder="load_name" name="name" type="text" value={this.state.productToCreate.name} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="cost_of_load">cost_of_load</label>
-                            <input placeholder="cost_of_load" name="cost_of_load" type="text" value={this.state.productToCreate.cost_of_load} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="trucking_company">trucking_company</label>
-                            <input placeholder="trucking_company" name="trucking_company" type="text" value={this.state.productToCreate.trucking_company} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="bol_number">bol_number</label>
-                            <input placeholder="bol_number" name="bol_number" type="text" value={this.state.productToCreate.bol_number} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="travel_days_required">travel_days_required</label>
-                            <input placeholder="travel_days_required" name="travel_days_required" type="text" value={this.state.productToCreate.travel_days_required} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="estimated_date_arrival">estimated_date_arrival</label>
-                            <input placeholder="estimated_date_arrival" name="estimated_date_arrival" type="text" value={this.state.productToCreate.estimated_date_arrival} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="point_of_contact">point_of_contact</label>
-                            <input placeholder="point_of_contact" name="point_of_contact" type="text" value={this.state.productToCreate.point_of_contact} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="num_of_pallets">num_of_pallets</label>
-                            <input placeholder="num_of_pallets" name="num_of_pallets" type="text" value={this.state.productToCreate.num_of_pallets} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="originating_port">originating_port</label>
-                            <input placeholder="originating_port" name="originating_port" type="text" value={this.state.productToCreate.originating_port} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="recent_terminal">recent_terminal</label>
-                            <input placeholder="recent_terminal" name="recent_terminal" type="text" value={this.state.productToCreate.recent_terminal} onChange={this.handleEditChange}></input>
-                            <br/>
-                            <label for="date_last_terminal">date_last_terminal</label>
-                            <input placeholder="date_last_terminal" name="date_last_terminal" type="text" value={this.state.productToCreate.date_last_terminal} onChange={this.handleEditChange}></input>
-                            <br/>
+                        <div className="card-content">
+                            <header>New Inbound Freight</header><br />
+                            <form className="col" onSubmit={this.addFreight}>
 
-                        <button className="btn" type="submit"><i className="material-icons right">local_shipping</i>
-                            Create New Inbound Freight
-                        </button> 
-                    </form>
-                    </div>
+                                <label className="black-text" for="load_name">Load Name</label>
+                                <input placeholder="load_name" name="name" type="text" value={this.state.productToCreate.name} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="cost_of_load">cost_of_load</label>
+                                <input placeholder="cost_of_load" name="cost_of_load" type="text" value={this.state.productToCreate.cost_of_load} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="trucking_company">trucking_company</label>
+                                <input placeholder="trucking_company" name="trucking_company" type="text" value={this.state.productToCreate.trucking_company} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="bol_number">bol_number</label>
+                                <input placeholder="bol_number" name="bol_number" type="text" value={this.state.productToCreate.bol_number} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="travel_days_required">travel_days_required</label>
+                                <input placeholder="travel_days_required" name="travel_days_required" type="text" value={this.state.productToCreate.travel_days_required} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="estimated_date_arrival">estimated_date_arrival</label>
+                                <input placeholder="estimated_date_arrival" name="estimated_date_arrival" type="text" value={this.state.productToCreate.estimated_date_arrival} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="point_of_contact">point_of_contact</label>
+                                <input placeholder="point_of_contact" name="point_of_contact" type="text" value={this.state.productToCreate.point_of_contact} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="num_of_pallets">num_of_pallets</label>
+                                <input placeholder="num_of_pallets" name="num_of_pallets" type="text" value={this.state.productToCreate.num_of_pallets} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="originating_port">originating_port</label>
+                                <input placeholder="originating_port" name="originating_port" type="text" value={this.state.productToCreate.originating_port} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="recent_terminal">recent_terminal</label>
+                                <input placeholder="recent_terminal" name="recent_terminal" type="text" value={this.state.productToCreate.recent_terminal} onChange={this.handleEditChange}></input>
+                                <br />
+                                <label for="date_last_terminal">date_last_terminal</label>
+                                <input placeholder="date_last_terminal" name="date_last_terminal" type="text" value={this.state.productToCreate.date_last_terminal} onChange={this.handleEditChange}></input>
+                                <br />
 
-
-                        
+                                <button className="btn" type="submit"><i className="material-icons right">local_shipping</i>
+                                    Create New Inbound Freight
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col s6">
                         <FreightList
-                            products={this.state.products}
-                            deleteFreight={this.deleteFreight}
-                            editFreight={this.editFreight}
+                            // products={this.state.products}
+                            products={['asdf','asdf','asdf','asdf']}
                         />
                     </div>
                     {/* <div className="col s6">

@@ -32,18 +32,13 @@
   margin: 1rem;
   position: relative;
 }
-/*Basic button style */
-/* .btn {
-  background: none;
-  background-color: #57C1FF;
-  box-shadow: 0 0.5em 0.5em -0.4em;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
+.homepage {
+  background: url("https://images.unsplash.com/photo-1544726226-48db83ba1534?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
 }
-.btn:hover, .btn:focus {
-  box-shadow: inset 0 0 0 2em var(--hover);
-} */
 .footer {
   padding-left: 300px;
   width: 100%;

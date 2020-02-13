@@ -30,6 +30,8 @@ class FreightCard extends Component {
     updateFreight = async (e) => {
         //avoid browser re-render with preventDefault() for the event
         e.preventDefault()
+        const {product} = this.state
+        console.log(product)
         //try catch for response 
         try {
             //await the async function testing hard code localhost and replace with ${process.env.REACT_APP_API_URL}
@@ -129,39 +131,19 @@ class FreightCard extends Component {
                         <input disabled={disabled} name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
 
-                        {/* <span className="card-title black-text center-align">Load Name: {product.name}</span>
-                            <p className="center-align">Cost of Load: { product.cost_of_load}</p>
-                            <br/>
-                            <p className="center-align">Trucking Co: {product.trucking_company}</p>
-                            <br/>
-                            <p className="center-align">BOL: {product.bol_number}</p>
-                            <br/>
-                            <p className="center-align">Travel Days Req: {product.travel_days_required}</p>
-                            <br/>
-                            <p className="center-align">Date of Arrival: {product.estimated_date_arrival}</p>
-                            <br/>
-                            <p className="center-align">POC: {product.point_of_contact}</p>
-                            <br/>
-                            <p className="center-align">Num. of Pallets: {product.num_of_pallets}</p>
-                            <br/>
-                            <p className="center-align">Coming from: {product.originating_port}</p>
-                            <br/>
-                            <p className="center-align">Last Terminal: {product.recent_terminal}</p>
-                            <br/>
-                            <p className="center-align">Date of last terminal: {product.date_last_terminal}</p>
-                            <br/> */}
+                        
                         <div className="card-action">
                             <button className="btn" onClick={() => this.editForm()}>
                                 <i className="material-icons left">create</i>
                                 Edit Freight Item
                             </button>
                             <br />
-                            <button className="btn" onClick={() => props.updateFreight(product.id)}>
+                            <button className="btn" onClick={() => this.props.updateFreight(product.id)}>
                                 <i className="material-icons left">grain</i>
                                 Update Freight Item
                             </button>
                             <br />
-                            <button className="btn" onClick={() => props.deleteFreight(product.id)}>
+                            <button className="btn" onClick={() => this.props.deleteFreight(product.id)}>
                                 <i className="material-icons left">highlight_off</i>
                                 Delete Freight Item
                             </button>
@@ -170,20 +152,6 @@ class FreightCard extends Component {
                 </div>
             </form >
         )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
 
