@@ -7,7 +7,7 @@ function FreightList(props) {
     // console.log(props)
     // console.log(typeof(props))
     const { products } = props
-
+    // console.log(props, 'props')
    
     return products ? products.map((product) => <FreightCard product={product} {...props}/>) : null;
 }

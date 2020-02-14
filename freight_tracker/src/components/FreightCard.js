@@ -65,17 +65,16 @@ class FreightCard extends Component {
     }
 
     //function for deleteFreight
-    deleteFreight = async (id) => {
+    deleteFreight = async (e, id) => {
+        e.preventDefault()
         const deleteFreightResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/products/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         });
 
-        await deleteFreightResponse.json();
-
-        this.setState({
-            products: this.state.products.filter((product) => product.id !== id)
-        })
+        const deletedResponse = await deleteFreightResponse.json();
+        // console.log(this.props)
+        this.props.history.push("/products")
     }
 
     componentDidMount() {
@@ -134,17 +133,17 @@ class FreightCard extends Component {
 
                         
                        
-                            <button className="btn-floating blue pulse" onClick={() => this.editForm()}>
+                            <button className="btn-floating blue pulse" onClick={() => this.editForm(product.id)}>
                                 <i className="material-icons left">create</i>
                                 Edit Freight Item
                             </button>
                             <br />
-                            <button className="btn-floating blue pulse" onClick={() => this.props.updateFreight(product.id)}>
+                            <button className="btn-floating blue pulse" onClick={() => this.updateFreight(product.id)}>
                                 <i className="material-icons left">grain</i>
                                 Update Freight Item
                             </button>
                             <br />
-                            <button className="btn-floating blue pulse" onClick={() => this.props.deleteFreight(product.id)}>
+                            <button className="btn-floating blue pulse" onClick={(e) => this.deleteFreight(e, product.id)}>
                                 <i className="material-icons left">highlight_off</i>
                                 Delete Freight Item
                             </button>

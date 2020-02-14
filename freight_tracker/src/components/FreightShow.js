@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+
 
 
 class FreightShow extends Component {
     state = {
-        disabled: true,
+        disabled: false,
         product: {}
     }
     //deconstruct products from state to render cetrain attributes
@@ -54,15 +54,6 @@ class FreightShow extends Component {
                         <input disabled={disabled} name="date_last_terminal" type="text" value={product.date_last_terminal} ></input>
                         <br />
                         </div>
-                            <div className="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                                {/* <div className="card-action">
-                                    <Link to="/">This is a link</Link>
-                                    <button className="btn-flat" onClick={() => this.props.deleteFreight(props.product.id)}>Delete Freight Load</button>
-                                    <button className="btn-flat" onClick={() => this.props.editFright(props.product.id)}>Edit Freight Load</button>
-                                </div> */}
                 </div>
             </div>  
         )

@@ -71,7 +71,7 @@ class FreightContainer extends Component {
                 credentials: 'include'
             });
             const parsedProducts = await products.json();
-                console.log(parsedProducts, 'line74')
+                // console.log(parsedProducts, 'line74')
             this.setState({
                 products: parsedProducts.data
             })
@@ -104,8 +104,8 @@ class FreightContainer extends Component {
         // const { product } = this.props
         // this.setState({
         //     product: product
-        // })
-        console.log('FreightContainer componentDidMount')
+        // // })
+        // console.log('FreightContainer getFreight componentDidMount')
     }
 
     render() {
@@ -163,6 +163,7 @@ class FreightContainer extends Component {
                         <div className="z-depth-3">
                         <FreightList
                             products={this.state.products}
+                            {...this.props}
                             // products={['asdf','asdf','asdf','asdf']}
                         />
                         </div>
