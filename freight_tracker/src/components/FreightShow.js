@@ -15,7 +15,7 @@ class FreightShow extends Component {
         
         return (
             <div className="row">
-                <div className="col s12 m7">
+                <div className="col s12 m6 13 center-align">
                     <div className="card">
                     <span className="card-content" key={product.id}></span>
                     </div>

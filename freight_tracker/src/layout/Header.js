@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
+import SearchBar from '../components/SearchBar'
+
 
 class HeaderComponent extends Component {
     //auth in state
     //desconstruct auth
     render() {
-        return(
-            <header>
-                <nav className="nav-wrapper transparent">                
-                        <form>
-                            <div className="input-field">
-                            <input id="search" type="search" placeholder="Search for.." required></input>
-                            <label className="label-icon" for="search"><i className="material-icons">search</i></label>
+        return (
+            <nav className="blue-grey lighten-3">
+                <div className="container">
+                            <div className="nav-wrapper blue-grey lighten-3">
+                                <SearchBar />
+                                <br/>
+                                <ul className="left hide-on-med-and-down">
+                                    <li><Link className="black-text" to="/">Home</Link></li>
+                                    <li><Link className="black-text" to="/products">Inbound Freight</Link></li>
+                                    </ul>
+                                <ul className="right hide-on-med-and-down">
+                                    <li><NavLink className="right black-text" to="/">Logout</NavLink></li>
+                                </ul>
                             </div>
-                        </form>
-                    <ul className="collection with-header">
-                            <li><NavLink to="/" className="left"></NavLink></li>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/products">Inbound Freight</Link></li>
-                            <li><NavLink to="/" className="right">Logout</NavLink></li>
-                    </ul>
-                </nav>
-                </header>
+                        </div>
+            </nav>
         )
     }
 };

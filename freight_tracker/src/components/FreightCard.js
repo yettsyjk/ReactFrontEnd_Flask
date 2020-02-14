@@ -93,61 +93,65 @@ class FreightCard extends Component {
         } = this.state
 
         return (
-            < form className="col s12 l6" >
-                <div className="card">
+            < form className="container" >
+                <div className="row">
+                <div className="col s12 m6 13 center-align">
+                    <div className="card">
                     <div className="card-content">
                         <header>Freight Card</header>
                         <label className="black-text" for="load_name">Load Name</label>
                         <input disabled={disabled} name="name" type="text" value={product.name} onChange={this.handleChange}></input>
                         <br />
-                        <label for="cost_of_load">cost_of_load</label>
+                        <label className="black-text" for="cost_of_load">cost_of_load</label>
                         <input disabled={disabled} name="cost_of_load" type="text" value={product.cost_of_load} onChange={this.handleChange}></input>
                         <br />
-                        <label for="trucking_company">trucking_company</label>
+                        <label className="black-text" for="trucking_company">trucking_company</label>
                         <input disabled={disabled} name="trucking_company" type="text" value={product.trucking_company} onChange={this.handleChange}></input>
                         <br />
-                        <label for="bol_number">bol_number</label>
+                        <label className="black-text" for="bol_number">bol_number</label>
                         <input disabled={disabled} name="bol_number" type="text" value={product.bol_number} onChange={this.handleChange}></input>
                         <br />
-                        <label for="travel_days_required">travel_days_required</label>
+                        <label className="black-text" for="travel_days_required">travel_days_required</label>
                         <input disabled={disabled} name="travel_days_required" type="text" value={product.travel_days_required} onChange={this.handleChange}></input>
                         <br />
-                        <label for="estimated_date_arrival">estimated_date_arrival</label>
+                        <label className="black-text" for="estimated_date_arrival">estimated_date_arrival</label>
                         <input disabled={disabled} name="estimated_date_arrival" type="text" value={product.estimated_date_arrival} onChange={this.handleChange}></input>
                         <br />
-                        <label for="point_of_contact">point_of_contact</label>
+                        <label className="black-text" for="point_of_contact">point_of_contact</label>
                         <input disabled={disabled} name="point_of_contact" type="text" value={product.point_of_contact} onChange={this.handleChange}></input>
                         <br />
-                        <label for="num_of_pallets">num_of_pallets</label>
+                        <label className="black-text" for="num_of_pallets">num_of_pallets</label>
                         <input disabled={disabled} name="num_of_pallets" type="text" value={product.num_of_pallets} onChange={this.handleChange}></input>
                         <br />
-                        <label for="originating_port">originating_port</label>
+                        <label className="black-text" for="originating_port">originating_port</label>
                         <input disabled={disabled} name="originating_port" type="text" value={product.originating_port} onChange={this.handleChange}></input>
                         <br />
-                        <label for="recent_terminal">recent_terminal</label>
+                        <label className="black-text" for="recent_terminal">recent_terminal</label>
                         <input disabled={disabled} name="recent_terminal" type="text" value={product.recent_terminal} onChange={this.handleChange}></input>
                         <br />
-                        <label for="date_last_terminal">date_last_terminal</label>
+                        <label className="black-text" for="date_last_terminal">date_last_terminal</label>
                         <input disabled={disabled} name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
 
                         
-                        <div className="card-action">
-                            <button className="btn" onClick={() => this.editForm()}>
+                        <div className="card-action s12">
+                            <button className="btn-floating blue pulse" onClick={() => this.editForm()}>
                                 <i className="material-icons left">create</i>
                                 Edit Freight Item
                             </button>
                             <br />
-                            <button className="btn" onClick={() => this.props.updateFreight(product.id)}>
+                            <button className="btn-floating blue pulse" onClick={() => this.props.updateFreight(product.id)}>
                                 <i className="material-icons left">grain</i>
                                 Update Freight Item
                             </button>
                             <br />
-                            <button className="btn" onClick={() => this.props.deleteFreight(product.id)}>
+                            <button className="btn-floating blue pulse" onClick={() => this.props.deleteFreight(product.id)}>
                                 <i className="material-icons left">highlight_off</i>
                                 Delete Freight Item
                             </button>
                         </div>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </form >

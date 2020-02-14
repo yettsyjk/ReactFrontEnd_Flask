@@ -1,6 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function RegisterForm () {
+class RegisterForm extends Component {
+    constructor() {
+        super()
+        this.state = {
+            email: '',
+            password: '',
+            action: 'login'
+        }
+    }
+
+    register = async(registerInfo) {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/register`,{
+            method: 'POST',
+            credentials: 'include',
+            body: JSON.stringify(registerInfo),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const parsedRegisterResponse = await response.json();
+
+        if(parsedRegisterResponse.status.code === 200){
+            this.props.loggedStatus(parsedRegisterResponse.data.email)
+            this.props.history.push('/products');
+        } else {
+            console.log('Register Failed:', parsedRegisterResponse);
+        }
+    }
+    handleRegisterChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleRegisterSubmit = (e)=> {
+        e.preventDefault()
+        this.userRegister()
+    }
+    
     return(
         <div className="col s12">
             <div className="card-panel">

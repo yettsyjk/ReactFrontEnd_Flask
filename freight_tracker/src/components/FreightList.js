@@ -8,13 +8,7 @@ function FreightList(props) {
     // console.log(typeof(props))
     const { products } = props
 
-    // if (products.length > 0) {
-    //     return (
-    //         products.map((product) => <FreightCard product={product} {...props}/>)
-    //     )
-    // } else {
-    //     return 'hello'
-    // }
+   
     return products ? products.map((product) => <FreightCard product={product} {...props}/>) : null;
 }
 

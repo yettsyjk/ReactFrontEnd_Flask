@@ -24,16 +24,16 @@
 }
 .card-content {
   background: #848E99;
-  border-radius: 2px;
-  box-shadow: 0 0.5em 0.5em -0.4em;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px grey;
   display: block;
-  height: 100%;
-  width: 100%;
+  /* height: 60%;
+  width: 100%; */
   margin: 1rem;
   position: relative;
 }
 .homepage {
-  background: url("https://images.unsplash.com/photo-1544726226-48db83ba1534?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+  background-image: url("https://images.unsplash.com/photo-1544726226-48db83ba1534?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
