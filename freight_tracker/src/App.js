@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AccountName from './screens/AccountName'
 import EditFreight from './screens/EditFreight'
 import FreightContainer from './screens/FreightContainer'
-// import FrieghtShow from './components/FreightShow'
+import FrieghtShow from './components/FreightShow'
 import Home from './screens/Home'
 import My404 from './screens/My404'
 import Register from './screens/Register'
-import SignIn from './screens/SignIn'
+
 
 import FooterContainer from './layout/Footer'
 import HeaderComponent from './layout/Header'
@@ -24,9 +24,8 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/products" component={FreightContainer} />
-						{/* <Route exact path="/products/:productName" component={FrieghtShow} /> */}
+						<Route exact path="/products/:productName" component={FrieghtShow} />
 						<Route exact path="/products/:productName/edit" component={EditFreight} />
-						<Route path="/signin" component={SignIn} />
 						<Route path="/accountName" component={AccountName} />
 						<Route path="/register" component={Register} />
 						<Route component={My404} />

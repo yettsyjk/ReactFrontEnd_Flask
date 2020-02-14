@@ -159,7 +159,6 @@ class FreightContainer extends Component {
                         <FreightList
                             products={this.state.products}
                             {...this.props}
-                          
                         />
                         </div>
                     </div>

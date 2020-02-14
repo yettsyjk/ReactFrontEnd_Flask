@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 
 class CreateFreight extends Component {
@@ -96,4 +96,4 @@ class CreateFreight extends Component {
     }
 }
 
-export default CreateFreight;
+export default CreateFreight

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 
 class FreightCard extends Component {
     state = {
@@ -47,17 +49,8 @@ class FreightCard extends Component {
                 credentials: 'include'
             })
             const updateResponseParsed = await updateResponse.json()
-            //products are used as blueprint in Flask back-end and must be consistent when mapping through the each array element 
-            const newFreightArrayWithUpdate = this.state.products.map((product) => {
-                if (product.id === updateResponseParsed.data.id) {
-                    product = updateResponseParsed.data
-                }
-                return product
-            })
-            //call this.setState inside 
-            this.setState({
-                products: newFreightArrayWithUpdate
-            })
+            console.log(updateResponseParsed)
+            this.props.history.push("/products")
 
         } catch (err) {
             console.log(err)
@@ -73,7 +66,7 @@ class FreightCard extends Component {
         });
 
         const deletedResponse = await deleteFreightResponse.json();
-        // console.log(this.props)
+        console.log(deletedResponse)
         this.props.history.push("/products")
     }
 
@@ -130,15 +123,7 @@ class FreightCard extends Component {
                         <label className="black-text" for="date_last_terminal">date_last_terminal</label>
                         <input name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
-
-                        
-                       
-                            <button className="btn-floating blue pulse" onClick={() => this.editForm(product.id)}>
-                                <i className="material-icons left">create</i>
-                                Edit Freight Item
-                            </button>
-                            <br />
-                            <button className="btn-floating blue pulse" onClick={() => this.updateFreight(product.id)}>
+                            <button className="btn-floating blue pulse" onClick={(e) => this.updateFreight(e,product.id)}>
                                 <i className="material-icons left">grain</i>
                                 Update Freight Item
                             </button>
@@ -147,7 +132,9 @@ class FreightCard extends Component {
                                 <i className="material-icons left">highlight_off</i>
                                 Delete Freight Item
                             </button>
-                        
+                        <div className="card-action">
+                            <Link to="/products/:productName">This is a Link to details</Link>
+                        </div>
                     </div>
                     </div>
                     </div>
