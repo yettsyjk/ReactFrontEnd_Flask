@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-// import CreateFreight from './CreateFreight'
-// import EditFreight from './EditFreight'
 import FreightList from '../components/FreightList'
 
 class FreightContainer extends Component {
@@ -101,10 +99,7 @@ class FreightContainer extends Component {
     //we only want to fetch data one time when the component mounts
     componentDidMount() {
         this.getFreight()
-        // const { product } = this.props
-        // this.setState({
-        //     product: product
-        // // })
+       
         // console.log('FreightContainer getFreight componentDidMount')
     }
 
@@ -164,24 +159,11 @@ class FreightContainer extends Component {
                         <FreightList
                             products={this.state.products}
                             {...this.props}
-                            // products={['asdf','asdf','asdf','asdf']}
+                          
                         />
                         </div>
                     </div>
-                    {/* <div className="col s6">
-                        <CreateFreight
-                            addFreight={this.addFreight}
-                        />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col s12">
-                        <EditFreight
-                            updateFreight={this.updateFreight}
-                            productToCreate={this.state.productToCreate}
-                            handleEditChange={this.handleEditChange}
-                        />
-                    </div> */}
+
                 </div>
             </div>
         )

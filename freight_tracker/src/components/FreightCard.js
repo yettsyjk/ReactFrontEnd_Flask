@@ -101,7 +101,7 @@ class FreightCard extends Component {
                         <input disabled={disabled} name="load_name" type="text" value={product.load_name} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="cost_of_load">cost_of_load</label>
-                        <input disabled={disabled} name="cost_of_load" type="text" value={product.cost_of_load} onChange={this.handleChange}></input>
+                        <input name="cost_of_load" type="text" value={product.cost_of_load} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="trucking_company">trucking_company</label>
                         <input disabled={disabled} name="trucking_company" type="text" value={product.trucking_company} onChange={this.handleChange}></input>
@@ -116,7 +116,7 @@ class FreightCard extends Component {
                         <input disabled={disabled} name="estimated_date_arrival" type="text" value={product.estimated_date_arrival} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="point_of_contact">point_of_contact</label>
-                        <input disabled={disabled} name="point_of_contact" type="text" value={product.point_of_contact} onChange={this.handleChange}></input>
+                        <input name="point_of_contact" type="text" value={product.point_of_contact} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="num_of_pallets">num_of_pallets</label>
                         <input disabled={disabled} name="num_of_pallets" type="text" value={product.num_of_pallets} onChange={this.handleChange}></input>
@@ -125,10 +125,10 @@ class FreightCard extends Component {
                         <input disabled={disabled} name="originating_port" type="text" value={product.originating_port} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="recent_terminal">recent_terminal</label>
-                        <input disabled={disabled} name="recent_terminal" type="text" value={product.recent_terminal} onChange={this.handleChange}></input>
+                        <input name="recent_terminal" type="text" value={product.recent_terminal} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="date_last_terminal">date_last_terminal</label>
-                        <input disabled={disabled} name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
+                        <input name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
 
                         

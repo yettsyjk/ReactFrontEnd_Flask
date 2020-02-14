@@ -7,12 +7,13 @@ class FreightShow extends Component {
         disabled: false,
         product: {}
     }
+    
     //deconstruct products from state to render cetrain attributes
     render() {
         const { product,
                 disabled
              } = this.state
-        
+        console.log(disabled)
         return (
             <div className="row">
                 <div className="col s12 m6 13 center-align">
