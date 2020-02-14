@@ -100,7 +100,7 @@ class FreightCard extends Component {
                     <div className="card-content">
                         <header>Freight Card</header>
                         <label className="black-text" for="load_name">Load Name</label>
-                        <input disabled={disabled} name="name" type="text" value={product.name} onChange={this.handleChange}></input>
+                        <input disabled={disabled} name="load_name" type="text" value={product.load_name} onChange={this.handleChange}></input>
                         <br />
                         <label className="black-text" for="cost_of_load">cost_of_load</label>
                         <input disabled={disabled} name="cost_of_load" type="text" value={product.cost_of_load} onChange={this.handleChange}></input>

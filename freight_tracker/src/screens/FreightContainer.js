@@ -8,7 +8,7 @@ class FreightContainer extends Component {
     state = {
         products: [],
         productToCreate: {
-            name: '',
+            load_name: '',
             cost_of_load: '',
             trucking_company: '',
             bol_number: '',
@@ -71,7 +71,7 @@ class FreightContainer extends Component {
                 credentials: 'include'
             });
             const parsedProducts = await products.json();
-
+                console.log(parsedProducts, 'line74')
             this.setState({
                 products: parsedProducts.data
             })
@@ -100,10 +100,11 @@ class FreightContainer extends Component {
     //function for componentDidMount
     //we only want to fetch data one time when the component mounts
     componentDidMount() {
-        const { product } = this.props
-        this.setState({
-            product: product
-        })
+        this.getFreight()
+        // const { product } = this.props
+        // this.setState({
+        //     product: product
+        // })
         console.log('FreightContainer componentDidMount')
     }
 
@@ -117,7 +118,7 @@ class FreightContainer extends Component {
                             <form className="col" onSubmit={this.addFreight}>
 
                                 <label className="black-text" for="load_name">Load Name</label>
-                                <input placeholder="load_name" name="name" type="text" value={this.state.productToCreate.name} onChange={this.handleEditChange}></input>
+                                <input placeholder="load_name" name="load_name" type="text" value={this.state.productToCreate.name} onChange={this.handleEditChange}></input>
                                 <br />
                                 <label className="black-text" for="cost_of_load">cost_of_load</label>
                                 <input placeholder="cost_of_load" name="cost_of_load" type="text" value={this.state.productToCreate.cost_of_load} onChange={this.handleEditChange}></input>

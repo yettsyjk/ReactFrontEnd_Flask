@@ -52,7 +52,7 @@ class CreateFreight extends Component {
                     <header className="black-text">Create Freight Container</header><br/>
                     <form className="col s12 m7" onSubmit={this.addFreight}>
                             <label for="load_name">Load Name</label>
-                            <input placeholder="load_name" name="name" type="text" value={this.state.name} onChange={this.handleChange}></input>
+                            <input placeholder="load_name" name="load_name" type="text" value={this.state.load_name} onChange={this.handleChange}></input>
                             <br/>
                             <label for="cost_of_load">cost_of_load</label>
                             <input placeholder="cost_of_load" name="cost_of_load" type="text" value={this.state.cost_of_load} onChange={this.handleChange}></input>

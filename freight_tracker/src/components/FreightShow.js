@@ -21,7 +21,7 @@ class FreightShow extends Component {
                     </div>
                         <div className="card-image">
                         <img src="https://img.icons8.com/office/2x/interstate-truck.png" alt="Freight tracker company logo truck for shipping"></img>
-                        <p className="card-title">Inbound Load Name: {product.name}</p>
+                        <p className="card-title">Inbound Load Name: {product.load_name}</p>
                         <br />
                         <label for="cost_of_load">cost_of_load</label>
                         <input disabled={disabled} name="cost_of_load" type="text" value={product.cost_of_load} ></input>

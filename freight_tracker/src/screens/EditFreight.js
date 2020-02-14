@@ -15,7 +15,7 @@ const EditFreight= (props)=> {
         <div class="col s12 m7">
           <header className="black-text">Edit Freight Container</header><br/>
                             <label for="load_name">Load Name</label>
-                            <input placeholder="load_name" name="name" type="text" value={props.productToCreate.name} onChange={handleEditChange}></input>
+                            <input placeholder="load_name" name="load_name" type="text" value={props.productToCreate.name} onChange={handleEditChange}></input>
                             <br/>
                             <label for="cost_of_load">cost_of_load</label>
                             <input placeholder="cost_of_load" name="cost_of_load" type="text" value={props.productToCreate.cost_of_load}></input>

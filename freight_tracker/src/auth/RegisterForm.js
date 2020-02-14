@@ -10,7 +10,7 @@ class RegisterForm extends Component {
         }
     }
 
-    register = async(registerInfo) {
+    register = async(registerInfo) => {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/register`,{
             method: 'POST',
             credentials: 'include',
@@ -37,17 +37,17 @@ class RegisterForm extends Component {
         e.preventDefault()
         this.userRegister()
     }
-    
+    render() {
     return(
         <div className="col s12">
             <div className="card-panel">
-                <form>
-                    <div className="row">
+            <form>
+                <div className="row">
                     <div className="input-field col s6">
                         <i className="material-icons prefix">email</i>
                     <input placeholder="Email Address" id="email" type="email"/>
                     </div>
-                    </div>
+                </div>    
                 <div className="row">
                     <div className="input-field col s6">
                         <i className="material-icons prefix">lock</i>
@@ -62,7 +62,9 @@ class RegisterForm extends Component {
             </form>
             </div>
         </div>
-    )
+         
+        )
+    }
 }
 
 export default RegisterForm
