@@ -95,8 +95,7 @@ class FreightCard extends Component {
         return (
             < form className="container" >
                 <div className="row">
-                <div className="col s12 m6 13 center-align">
-                    <div className="card">
+                <div className="col s12 center-align">
                     <div className="card-content">
                         <header>Freight Card</header>
                         <label className="black-text" for="load_name">Load Name</label>
@@ -134,7 +133,7 @@ class FreightCard extends Component {
                         <br />
 
                         
-                        <div className="card-action s12">
+                       
                             <button className="btn-floating blue pulse" onClick={() => this.editForm()}>
                                 <i className="material-icons left">create</i>
                                 Edit Freight Item
@@ -149,11 +148,10 @@ class FreightCard extends Component {
                                 <i className="material-icons left">highlight_off</i>
                                 Delete Freight Item
                             </button>
-                        </div>
+                        
                     </div>
                     </div>
                     </div>
-                </div>
             </form >
         )
     }
