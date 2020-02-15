@@ -1,33 +1,34 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import LoginRegisterForm from './auth/RegisterForm'
 import AccountName from './screens/AccountName'
-import EditFreight from './screens/EditFreight'
 import FreightContainer from './screens/FreightContainer'
-import FrieghtShow from './components/FreightShow'
+
 import Home from './screens/Home'
 import My404 from './screens/My404'
-import Register from './screens/Register'
+
 
 
 import FooterContainer from './layout/Footer'
-import HeaderComponent from './layout/Header'
+import NavBar from './layout/NavBar'
 
 import './styles/screens.css'
+import FreightList from './components/FreightList'
+
 
 function App() {
 	return (
 		<BrowserRouter>
 			<div className="app-content">
-				<HeaderComponent />
+				<NavBar />
 				<div className="router-content">
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/products" component={FreightContainer} />
-						<Route exact path="/products/:productName" component={FrieghtShow} />
-						<Route exact path="/products/:productName/edit" component={EditFreight} />
-						<Route path="/accountName" component={AccountName} />
-						<Route path="/register" component={Register} />
+						<Route exact path="/products/:id" component={FreightList} />
+						<Route path="/register" component={LoginRegisterForm} />
+						<Route path="/account/:slug" component={AccountName}/>
 						<Route component={My404} />
 					</Switch>
 				</div>

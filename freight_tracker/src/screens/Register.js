@@ -5,7 +5,8 @@ import RegisterForm from '../auth/RegisterForm'
 function Register() {
     return (
         <div>
-            <RegisterForm/>
+            Register Free Account
+            <RegisterForm />
         </div>
     )
 }
