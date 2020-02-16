@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import FreightList from '../components/FreightList'
 
@@ -156,13 +157,13 @@ class FreightContainer extends Component {
                 <div className="row">
                     <div className="col s6">
                         <div className="z-depth-3">
-                        <FreightList
+                       <Link className="btn" to="/product/:id"> <FreightList
                             products={this.state.products}
                             {...this.props}
                         />
+                        </Link>
                         </div>
                     </div>
-
                 </div>
             </div>
         )

@@ -9,7 +9,7 @@ function FreightList(props) {
     const { products } = props
     // console.log(props, 'props')
    
-    return products ? products.map((product) => <FreightCard product={product} {...props}/>) : null;
+    return products ? products.map(product => <FreightCard product={product} {...props}/>) : null;
 }
 
 export default FreightList

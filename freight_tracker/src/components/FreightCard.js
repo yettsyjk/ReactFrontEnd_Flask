@@ -93,34 +93,34 @@ class FreightCard extends Component {
                         <label className="black-text" for="load_name">Load Name</label>
                         <input disabled={disabled} name="load_name" type="text" value={product.load_name} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="cost_of_load">cost_of_load</label>
+                        <label className="black-text" for="cost_of_load">cost of load</label>
                         <input name="cost_of_load" type="text" value={product.cost_of_load} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="trucking_company">trucking_company</label>
+                        <label className="black-text" for="trucking_company">Trucking Company</label>
                         <input disabled={disabled} name="trucking_company" type="text" value={product.trucking_company} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="bol_number">bol_number</label>
+                        <label className="black-text" for="bol_number">BOL number</label>
                         <input disabled={disabled} name="bol_number" type="text" value={product.bol_number} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="travel_days_required">travel_days_required</label>
+                        <label className="black-text" for="travel_days_required">Travel days required</label>
                         <input disabled={disabled} name="travel_days_required" type="text" value={product.travel_days_required} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="estimated_date_arrival">estimated_date_arrival</label>
+                        <label className="black-text" for="estimated_date_arrival">Estimated date arrival</label>
                         <input disabled={disabled} name="estimated_date_arrival" type="text" value={product.estimated_date_arrival} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="point_of_contact">point_of_contact</label>
+                        <label className="black-text" for="point_of_contact">Point of Contact</label>
                         <input name="point_of_contact" type="text" value={product.point_of_contact} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="num_of_pallets">num_of_pallets</label>
+                        <label className="black-text" for="num_of_pallets">Num of pallets</label>
                         <input disabled={disabled} name="num_of_pallets" type="text" value={product.num_of_pallets} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="originating_port">originating_port</label>
+                        <label className="black-text" for="originating_port">Originating port</label>
                         <input disabled={disabled} name="originating_port" type="text" value={product.originating_port} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="recent_terminal">recent_terminal</label>
+                        <label className="black-text" for="recent_terminal">Recent Terminal</label>
                         <input name="recent_terminal" type="text" value={product.recent_terminal} onChange={this.handleChange}></input>
                         <br />
-                        <label className="black-text" for="date_last_terminal">date_last_terminal</label>
+                        <label className="black-text" for="date_last_terminal">Date last terminal</label>
                         <input name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
                             <button className="btn-floating blue pulse" onClick={(e) => this.updateFreight(e,product.id)}>
@@ -133,7 +133,7 @@ class FreightCard extends Component {
                                 Delete Freight Item
                             </button>
                         <div className="card-action">
-                            <Link to="/products/:productName">This is a Link to details</Link>
+                            <Link className="black-text" to={`products/${product.id}`}>Freight Card Details</Link>
                         </div>
                     </div>
                     </div>

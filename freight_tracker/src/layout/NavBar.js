@@ -25,7 +25,7 @@ class NavBar extends Component {
     }
 
     render() {
-        const { auth }= this.state
+        const { auth } = this.state
 
         const authLinks = auth ? <SignedInLinks handleLogOut={this.handleLogOut} /> : <SignedOutLinks handleLogIn={this.handleLogIn}/>
     return (
