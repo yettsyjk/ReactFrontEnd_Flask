@@ -85,7 +85,7 @@ class CreateFreight extends Component {
                             <input placeholder="date_last_terminal" name="date_last_terminal" type="text" value={this.state.date_last_terminal} onChange={this.handleChange}></input>
                             <br/>
                         <button className="btn" type="submit"><i className="material-icons right">local_shipping</i>
-                            Create Frieght Container
+                            Create Freight Container
                         </button> 
                       
                     </form>

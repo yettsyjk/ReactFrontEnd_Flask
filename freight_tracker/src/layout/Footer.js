@@ -9,20 +9,21 @@ function FooterContainer() {
             <div className="container">
                 <div className="row">
                     <div className="col l6 s12">
-                        <h5 className="white-text">Freight Tracker</h5>
-                        <p className="white-text">Inventory at your fingertips</p>
+                        <h5 className="black-text"><Link className="black-text" to="/">Freight Tracker</Link></h5>
+                        <p className="black-text">Inventory at your fingertips</p>
+                        <p className="black-text">Developed for Educational Purposes Only.</p>
                     </div>
                     <div className="col l4 offset-l2 s12">
-                        <h5 className="white-text">About</h5>
+                        <h5 className="black-text"><Link className="black-text" to="/about">About</Link></h5>
                         <ul>
-                            <li><Link className="white-text" to="/">About Us</Link></li>
-                            <li><Link className="white-text" to="/">Contact Us</Link></li>
+                            <li><Link className="black-text" to="/about">About Us</Link></li>
+                            <li><Link className="black-text" to="/contact">Contact Us</Link></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="footer-copyright">
-                <div className="container">
+                <div className="container black-text">
                     © {date.getFullYear()} DM, LLC
                 </div>
             </div>

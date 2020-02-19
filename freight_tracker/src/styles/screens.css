@@ -21,26 +21,30 @@ body {
 /* 
  * Classes
  */
-/* ASK NIC BEFORE ADDING OTHER STYLES HERE */
+/* ASK  BEFORE ADDING OTHER STYLES HERE */
 .app-content {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-/* ASK NIC BEFORE ADDING OTHER STYLES HERE */
+/* ASK  BEFORE ADDING OTHER STYLES HERE */
 .router-content {
   flex: 1 0 auto;
 }
+.z-depth-1{
+display: inline-block; 
+padding: 32px 48px 0px 48px; 
+border: 1px solid #EEE;
+}
 
 .card-content { /*FreightContainer Card */
-  background: #fff;
   border-radius: 30px;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 5px rgb(218, 216, 216);
   display: block;
-  height: 900px;
+  height: 980px;
   width: 500px;
   margin: 1rem;
-  position: relative;
+  
 }
 .card-panel {
   background: #fff;

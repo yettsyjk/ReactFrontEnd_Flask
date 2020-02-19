@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-
 class FreightCard extends Component {
     state = {
         disabled: true,
-        product: {}
+        product: {},
+        productToEdit: {}
     }
 
     //function for handleEditChange is required for form that is being submitted to return an object
@@ -21,10 +21,10 @@ class FreightCard extends Component {
     }
 
     //function for editFreight
-    editForm = () => {
+    editForm = (e, product) => {
         this.setState({
             disabled: false,
-            product: this.state
+            productToEdit: product
         })
     }
     //updateResponse will have to await fetch response to include product.id and return product
@@ -63,11 +63,14 @@ class FreightCard extends Component {
         const deleteFreightResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/products/${id}`, {
             method: 'DELETE',
             credentials: 'include'
-        });
+        }).then(()=> {
+            this.props.history.push("/")
+            this.props.history.push("/products")
+
+        })
 
         const deletedResponse = await deleteFreightResponse.json();
         console.log(deletedResponse)
-        this.props.history.push("/products")
     }
 
     componentDidMount() {
@@ -123,7 +126,7 @@ class FreightCard extends Component {
                         <label className="black-text" for="date_last_terminal">Date last terminal</label>
                         <input name="date_last_terminal" type="text" value={product.date_last_terminal} onChange={this.handleChange}></input>
                         <br />
-                            <button className="btn-floating blue pulse" onClick={(e) => this.updateFreight(e,product.id)}>
+                            <button className="btn-floating blue pulse" onClick={(e) => this.editForm(e,product)}>
                                 <i className="material-icons left">grain</i>
                                 Update Freight Item
                             </button>
@@ -136,9 +139,9 @@ class FreightCard extends Component {
                             <Link className="black-text" to={`products/${product.id}`}>Freight Card Details</Link>
                         </div>
                     </div>
-                    </div>
-                    </div>
-            </form >
+                </div>
+            </div>
+        </form >
         )
     }
 }
