@@ -1,12 +1,11 @@
 import React from 'react'
 
-import RegisterForm from '../auth/RegisterForm'
+import LoginRegisterForm from '../auth/LoginRegisterForm'
 
-function Register() {
+function Register(props) {
     return (
         <div>
-            Register Free Account
-            <RegisterForm />
+            <LoginRegisterForm {...props}/>
         </div>
     )
 }
