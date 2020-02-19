@@ -9,6 +9,23 @@ class LoginRegisterForm extends Component {
             action: 'login'
         }
     }
+    //this fetch call is for heroku app
+    handleRegister = async (data) => {
+        try {
+            const registerCall = await fetch(`${process.env.REACT_APP_API_URL}/users/registration`, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'applications/json'
+                }
+            })
+            const response = await registerCall.json()
+            console.log('response:', response)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     login = async (loginInfo) => {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/login`, {
