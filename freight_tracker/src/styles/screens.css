@@ -44,6 +44,7 @@ border: 1px solid #EEE;
   height: 980px;
   width: 500px;
   margin: 1rem;
+  text-align: center;
   
 }
 .card-panel {
@@ -55,4 +56,13 @@ border: 1px solid #EEE;
   width: 300px;
   margin: 1rem;
   position: relative;
+}
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+  color: #e91e63;
+}
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 2px solid #e91e63;
+  box-shadow: none;
 }

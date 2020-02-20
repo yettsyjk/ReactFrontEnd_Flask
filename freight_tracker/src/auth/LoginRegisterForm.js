@@ -10,23 +10,6 @@ class LoginRegisterForm extends Component {
         }
     }
     //this fetch call is for heroku app
-    handleRegister = async (data) => {
-        try {
-            const registerCall = await fetch(`${process.env.REACT_APP_API_URL}/users/registration`, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'applications/json'
-                }
-            })
-            const response = await registerCall.json()
-            console.log('response:', response)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
     login = async (loginInfo) => {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/users/login`, {
             method: 'POST',
@@ -35,7 +18,8 @@ class LoginRegisterForm extends Component {
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
+
         const parsedLoginResponse = await response.json()
 
         if(parsedLoginResponse.status.code === 200){
@@ -114,11 +98,12 @@ class LoginRegisterForm extends Component {
 
     render() {
     return(
-        <div className="col s12">
-            <div className="card-medium center-align">
+        <div className="container">
+        <div className="col s12 m8 l4 offset-m2 offset-l4">
+            <div className="card-small center-align">
                 <form className="col s12" onSubmit={this.loginRegister}>
                     <div className="row">
-                    <img className="responsive-img" src="https://images.unsplash.com/photo-1579223442946-c1c147e96598?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" alt="grid wallpaper"></img>
+                    <img className="responsive-img" src="https://midlinklogistics.com/wp-content/uploads/sites/61/2015/02/map.png" alt="grid wallpaper" ></img>
                         <div className="input-field col s12">
                             <i className="material-icons prefix">email</i>
                             <input placeholder="Email Address" id="email" type="email" name="email" value={this.state.email} onChange={this.handleChange}/>
@@ -130,7 +115,7 @@ class LoginRegisterForm extends Component {
                             <input placeholder="Password" id="password" type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
                         </div>
                     </div>
-                    <div className="row center-align">
+                    <div className="form-field">
                         <div className="col s12">
                             <button type="submit" className="black-text btn">
                             {this.state.action === "login" ? "Log in" : "Register"}
@@ -139,16 +124,16 @@ class LoginRegisterForm extends Component {
                     <div className="row">
                         <div className="message">
                             {this.state.action === "register" ?
-                            <small>Already have an account? Log in <span onClick={this.switchForm}>here</span>.</small>
+                            <small>Already have an account? <br/>Log in <span onClick={this.switchForm}>here</span>.</small>
                         :
-                        <small>Need and account? Register free account <span onClick={this.switchForm}>here</span>!</small>}
+                        <small>Need and account? <br/>Register free account <span onClick={this.switchForm}>here</span>!</small>}
                         </div>
                     </div>
                     </div>
                 </form>
             </div>
         </div>
-       
+        </div>
         )
     }
 }

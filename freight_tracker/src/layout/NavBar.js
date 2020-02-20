@@ -45,7 +45,7 @@ class NavBar extends Component {
                         <li><Link className="black-text" to="/" >Home</Link></li>
                         <li><Link className="black-text" to="/products">Inbound Freight</Link></li>
                     </ul>
-                    <Link to="/" className="brand-logo center"><img src="https://img.icons8.com/dusk/2x/delivery.png" alt="logistic" height="50px" width="50px"></img>FTS</Link>
+                    <Link to="/" className="brand-logo center"><img src="https://img.icons8.com/dusk/2x/delivery.png" alt="logistic" height="50px" width="50px"></img>InFreight</Link>
                     <ul className="right hide-on-med-and-down" onClick={this.handleLogOut}>
                         {authLinks}
                     </ul>
